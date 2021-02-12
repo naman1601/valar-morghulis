@@ -1,10 +1,10 @@
 j=0
 n=10
 for((i = 1; i <= n; ++i)); do
-    python3 tcgen.py > randomtc.txt
-    ./correctcode < randomtc.txt > correct_output.txt
+    python3 tcgen.py > testcase.txt
+    ./correctcode < testcase.txt > correct_output.txt
     start=$(date +%s.%N)
-    ./usercode < randomtc.txt > user_output.txt
+    ./usercode < testcase.txt > user_output.txt
     dur=$(echo "$(date +%s.%N) - $start" | bc)
     printf "Execution time: %.3f s" $dur
     echo
@@ -16,6 +16,6 @@ for((i = 1; i <= n; ++i)); do
 done
 if [ $j != $n ] 
 then 
-    echo "chhi be, wrong answer"
+    echo "Wrong answer on current testcase :(. You can see the testcase in the testcase.txt file."
 fi 
 #total runtime of 10 testcases = 1s
