@@ -1,6 +1,3 @@
-g++ usercode.cpp -o usercode
-g++ correctcode.cpp -o correctcode
-
 j=0
 n=10
 for((i = 1; i <= n; ++i)); do
